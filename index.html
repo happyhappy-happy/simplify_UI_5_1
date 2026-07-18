@@ -1,0 +1,91 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首頁</title>
+  <link rel="stylesheet" href="styles_index.css" />
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="header-content">
+        <div class="header-brand">
+          <img src="images/icon.jpg" alt="icon" class="icon" />
+          <h1>OO人壽保險條文助理</h1>
+        </div>
+        <div class="header-actions">
+        </div>
+      </div>
+    </header>
+
+    <p class="platform-purpose">
+      🎯 <strong>平台目的</strong><br>
+      <strong>1. 簡化保險條文</strong>：透過 AI 重點摘要、白話說明、案例分析及語音輔助，幫助您快速理解保險內容。 <br>
+      <strong>2. 理賠金額估算</strong>：根據輸入的保險資訊及事件描述，快速估算理賠金額，保障效益。<br>
+      <strong>3. PWA（Progressive Web App）</strong>：支援安裝至手機或電腦，如同 App 般，提供便利的操作體驗。
+    </p>
+
+    <h3>請選擇您想要體驗的保險產品</h3>
+
+    <div class="button-row">
+      <div class="product">
+        <h3 class="product-title">壽險保障</h3>
+        <button class="btn" onclick="goSimplify1()">OO人壽傳富美滿外幣利率變動型終身壽險<br>(含中文、閩南語語音)</button>
+      </div>
+      <div class="product">
+        <h3 class="product-title">意外傷害</h3>
+        <button class="btn" onclick="goSimplify2()">OO人壽 Fun 肆動網路投保傷害保險<br>(含中文、閩南語語音)</button>
+      </div>
+    </div>
+
+    <footer class="header footer">
+      <p>製作團隊：NCUIM 智慧保險創新團隊</p>
+      <p>製作日期：2026 年 7 月</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function goSimplify1() {
+      window.location.href = "simplify_voice.html";
+    }
+
+    function goEstimate1() {
+      window.location.href = "estimate.html";
+    }
+
+    function goSimplify2() {
+      window.location.href = "simplify2_voice.html";
+    }
+
+    function goEstimate2() {
+      window.location.href = "estimate2.html";
+    }
+
+  </script>
+
+  <script>
+    (function(){
+      var d = new Date();
+      var fmt = d.toLocaleDateString('zh-TW', {year:'numeric',month:'2-digit',day:'2-digit'});
+      var el = document.getElementById('prod-date');
+      if(el) el.textContent = fmt;
+    })();
+  </script>
+
+  <script src="app.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(() => console.log('Service Worker Registered'));
+  }
+  </script>
+</body>
+</html>
